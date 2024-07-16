@@ -117,3 +117,9 @@ Shape::Shape(int _type, int _x1, int _y1, double R, double H)
 	}
 
 }
+
+int Shape::getType() { return type; }
+double Shape::getVolume() { return volume; }
+double Shape::getSquare() { return square; }
+double Shape::getHeight() { return height; }
+double Shape::getRadius() { return radius; }

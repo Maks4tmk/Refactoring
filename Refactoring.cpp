@@ -8,31 +8,31 @@
 #include "catch2/catch_session.hpp"
 
 
-Shape shLine(0, 1, 2, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-Shape shSquare(1, 1, 2, 0, 3, 4, 0, 5, 6, 0, 7, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-Shape shCube(2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24);
-Shape shCircle(3, 1, 2, 3, 0);
-Shape shCylinder(4, 1, 2, 3, 4);
+Shape shLine(static_cast<int>(Sh_Name::line), 1, 2, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+Shape shSquare(static_cast<int>(Sh_Name::sqr), 1, 2, 0, 3, 4, 0, 5, 6, 0, 7, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+Shape shCube(static_cast<int>(Sh_Name::cube), 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24);
+Shape shCircle(static_cast<int>(Sh_Name::circle), 1, 2, 3, 0);
+Shape shCylinder(static_cast<int>(Sh_Name::cylinder), 1, 2, 3, 4);
 
 
 TEST_CASE("Проверка класс Shape") {
 
 	SECTION("Тест Line")
 	{
-		CHECK(shLine.type == 0);
+		CHECK(shLine.getType() == 0);
 		CHECK(shLine.x1 == 1);
 		CHECK(shLine.y1 == 2);
 		CHECK(shLine.x2 == 3);
 		CHECK(shLine.y2 == 4);
 
-		CHECK(shLine.square == 0);
-		CHECK(shLine.volume == 0);
+		CHECK(shLine.getSquare() == 0);
+		CHECK(shLine.getVolume() == 0);
 	}
 
 
 	SECTION("Тест Square")
 	{
-		CHECK(shSquare.type == 1);
+		CHECK(shSquare.getType() == 1);
 		CHECK(shSquare.x1 == 1);
 		CHECK(shSquare.y1 == 2);
 		CHECK(shSquare.x2 == 3);
@@ -42,14 +42,14 @@ TEST_CASE("Проверка класс Shape") {
 		CHECK(shSquare.x4 == 7);
 		CHECK(shSquare.y4 == 8);
 
-		CHECK(shSquare.square == 4);
-		CHECK(shSquare.volume == 0);
+		CHECK(shSquare.getSquare() == 4);
+		CHECK(shSquare.getVolume() == 0);
 	}
 
 
 	SECTION("Тест Cube")
 	{
-		CHECK(shCube.type == 2);
+		CHECK(shCube.getType() == 2);
 		CHECK(shCube.x1 == 1); CHECK(shCube.x2 == 4); CHECK(shCube.x3 == 7);
 		CHECK(shCube.y1 == 2); CHECK(shCube.y2 == 5); CHECK(shCube.y3 == 8);
 		CHECK(shCube.z1 == 3); CHECK(shCube.z2 == 6); CHECK(shCube.z3 == 9);
@@ -62,31 +62,31 @@ TEST_CASE("Проверка класс Shape") {
 		CHECK(shCube.y7 == 20); CHECK(shCube.y8 == 23);
 		CHECK(shCube.z7 == 21); CHECK(shCube.z8 == 24);
 
-		CHECK(shCube.square == 54);
-		CHECK(shCube.volume == 27);
+		CHECK(shCube.getSquare() == 54);
+		CHECK(shCube.getVolume() == 27);
 	}
 
 	SECTION("Тест Cylinder")
 	{
-		CHECK(shCylinder.type == 4);
+		CHECK(shCylinder.getType() == 4);
 		CHECK(shCylinder.x1 == 1);
 		CHECK(shCylinder.y1 == 2);
-		CHECK(shCylinder.radius == 3);
-		CHECK(shCylinder.height == 4);
+		CHECK(shCylinder.getRadius() == 3);
+		CHECK(shCylinder.getHeight() == 4);
 
-		CHECK(shCylinder.square == 52.274333882308142);
-		CHECK(shCylinder.volume == 113.09733552923255);
+		CHECK(shCylinder.getSquare() == 52.274333882308142);
+		CHECK(shCylinder.getVolume() == 113.09733552923255);
 	}
 
 	SECTION("Тест Circle")
 	{
-		CHECK(shCircle.type == 3);
+		CHECK(shCircle.getType() == 3);
 		CHECK(shCircle.x1 == 1);
 		CHECK(shCircle.y1 == 2);
-		CHECK(shCircle.radius == 3);
+		CHECK(shCircle.getRadius() == 3);
 
-		CHECK(shCircle.square == 28.274333882308138);
-		CHECK(shCircle.volume == 0);
+		CHECK(shCircle.getSquare() == 28.274333882308138);
+		CHECK(shCircle.getVolume() == 0);
 	}
 }
 

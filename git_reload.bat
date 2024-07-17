@@ -1,3 +1,3 @@
 git add .
-git commit -m "Ready tests"
+git commit -m "removing the switch"
 git push -u origin main

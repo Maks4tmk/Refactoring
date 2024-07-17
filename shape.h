@@ -46,6 +46,12 @@ public:
 
 	Sh_Line(int _x1, int _y1, int _x2, int _y2);
 
+	virtual void shift(int _m, int _n);
+	virtual void scaleX(int _a);
+	virtual void scaleY(int _d);
+	virtual void scaleZ(int _e);
+	virtual void scale(int _s);
+
 };
 
 
@@ -53,6 +59,12 @@ class Sh_Sqr : public Sh_Line
 {
 public:
 	Sh_Sqr(int _x1, int _y1, int _x2, int _y2, int _x3, int _y3, int _x4, int _y4);
+
+	void shift(int _m, int _n) override;
+	void scaleX(int _a) override;
+	void scaleY(int _d) override;
+	void scaleZ(int _e) override;
+	void scale(int _s) override;
 
 };
 
@@ -62,6 +74,11 @@ class Sh_Cube : public Sh_Line
 public:
 	Sh_Cube(int _x1, int _y1, int _z1, int _x2, int _y2, int _z2, int _x3, int _y3, int _z3, int _x4, int _y4, int _z4, int _x5, int _y5, int _z5, int _x6, int _y6, int _z6, int _x7, int _y7, int _z7, int _x8, int _y8, int _z8);
 
+	void shift(int _m, int _n, int _k);
+	void scaleX(int _a) override;
+	void scaleY(int _d) override;
+	void scaleZ(int _e) override;
+	void scale(int _s) override;
 };
 
 
